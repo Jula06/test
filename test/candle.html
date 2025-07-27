@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>✨ นางฟ้ามาประทานพรแย้ว ✨</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      color: #b077d1;
+      text-align: center;
+      padding: 50px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #d185c0;
+      margin-bottom: 20px;
+    }
+
+    /* ข้อความเป่าเทียน */
+    .blow-candle-message {
+      display: none;
+      font-size: 30px;
+      color: #ff4d6d;
+      font-weight: bold;
+      margin-top: 20px;
+      animation: fadeIn 2s ease-in-out forwards;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* รูปภาพที่แสดงเป็นห้าเหลี่ยม */
+    .image-container {
+      position: relative;
+      width: 300px; /* ขนาดกำหนดของรูป */
+      height: 300px; /* ขนาดกำหนดของรูป */
+      margin-top: 40px;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%); /* รูปห้าเหลี่ยม */
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✨ นางฟ้ามาประทานพรแย้ว ✨</h1>
+
+  <!-- ข้อความเป่าเทียน -->
+  <div class="blow-candle-message" id="blowMessage">✨ นางฟ้ามาประทานพรแย้ว ✨</div>
+
+  <script>
+    // แสดงข้อความเป่าเทียนหลังจากที่โหลดเนื้อหาทั้งหมดแล้ว
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById("blowMessage").style.display = "block"; // แสดงข้อความ
+      }, 20000); // แสดงหลังจาก 20 วินาที
+    };
+  </script>
+
+  <!-- รูปภาพที่แสดงเป็นห้าเหลี่ยม -->
+  <div class="image-container">
+    <img src="images/S__148258824.jpg" alt="รูปที่ 6" />
+  </div>
+
+</body>
+</html>

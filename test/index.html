@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday to Lin</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      color: #b077d1;
+      text-align: center;
+      padding: 50px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #d185c0;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 24px;
+      margin-bottom: 50px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .content-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+      margin-top: 60px;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* เค้ก */
+    .cake {
+      position: relative;
+      width: 220px;
+      margin-top: 20px;
+    }
+
+    .frosting-top {
+      height: 40px;
+      background: #ffb6d5;
+      border-radius: 60px 60px 0 0;
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .frosting-top::before {
+      content: "";
+      height: 15px;
+      background: #ffb6d5;
+      border-radius: 50% 50% 0 0;
+    }
+
+    /* เค้กแต่ละชั้นพร้อม animation */
+    .cake-layer {
+      height: 30px;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      opacity: 0;
+      animation: slideInCake 0.8s ease-out forwards;
+      position: relative;
+      z-index: 1;
+    }
+
+    .layer1 {
+      background: #ff4d6d;
+      animation-delay: 0.2s;
+    }
+
+    .layer2 {
+      background: #ff7ea7;
+      animation-delay: 0.6s;
+    }
+
+    .layer3 {
+      background: #ff4d6d;
+      animation-delay: 1s;
+    }
+
+    @keyframes slideInCake {
+      from {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* เทียน */
+    .candle {
+      position: absolute;
+      top: -40px; /* ขยับขึ้นไปด้านบนเค้กชั้นแรก */
+      width: 10px;
+      height: 40px;
+      background: repeating-linear-gradient(
+        45deg,
+        #ff69b4,
+        #ff69b4 5px,
+        #ffffff 5px,
+        #ffffff 10px
+      );
+      border-radius: 2px;
+      z-index: 3;
+    }
+
+    .candle:nth-of-type(5) { left: 40px; }
+    .candle:nth-of-type(6) { left: 105px; }
+    .candle:nth-of-type(7) { left: 170px; }
+
+    .flame {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 15px;
+      background: orange;
+      border-radius: 50%;
+      opacity: 0;
+      animation: flicker 0.3s infinite alternate, fadeIn 0.5s ease forwards;
+      animation-delay: 1.3s, 1.3s;
+    }
+
+    @keyframes flicker {
+      from { opacity: 1; transform: scaleY(1); }
+      to { opacity: 0.7; transform: scaleY(1.2); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ส่วนรูปภาพเลื่อน */
+    .image-scroll-container {
+      margin-top: 40px;
+      width: 100%;
+      max-width: 700px;
+      height: 180px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-scroll-container img {
+      height: 180px;
+      width: auto;
+      margin: 0;
+      opacity: 0;
+      animation: slideImages 30s ease-in-out infinite;
+      object-fit: contain;
+    }
+
+    @keyframes slideImages {
+      0% {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      16.66% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      33.33% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+    }
+
+    /* ข้อความ "เป่าเทียน" */
+    .blow-candle-message {
+      display: none;
+      font-size: 30px;
+      color: #ff4d6d;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* เพิ่มการตั้งค่าให้ข้อความเป็นลิงค์ */
+    .blow-candle-message a {
+      text-decoration: none;
+      color: #ff4d6d;
+      font-size: 30px;
+      font-weight: bold;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #fff;
+      border: 2px solid #ff4d6d;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .blow-candle-message a:hover {
+      background-color: #fdabba;
+      color: #fff;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday to Lin ^_^</h1>
+  <p>
+    สุขสันต์วันเกิดนะน้องหลินฮุ้ย! 
+    มีความสุขมากๆ ให้ผู้ชายคนนั้นมาบอกชอบเร็วๆ รีบสมหวังในทุกสิ่งเถอะ 55+ 
+    ขอให้มิตรภาพของเรายังคงอยู่ตลอดไป(มั้งนะ) อะหยอกๆ แล่ะขอบคุณที่เป็นเพื่อนที่ดีเสมอมา ช่ายป่าวว้า 
+    ม่ายสิ้ ขอบคุณที่นั่งเฝ้าทำงานทุกวัน อิอิ
+  </p>
+
+  <div class="content-wrapper">
+    <!-- เค้ก -->
+    <div class="cake">
+      <div class="frosting-top"></div>
+      <div class="cake-layer layer1"></div>
+      <div class="cake-layer layer2"></div>
+      <div class="cake-layer layer3"></div>
+
+      <!-- เทียน -->
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+
+      <div class="balloon"></div>
+      <div class="string"></div>
+    </div>
+    <!-- ข้อความเป่าเทียน -->
+     <div class="blow-candle-message" id="blowMessage">
+       <a href="candle.html">เป่าเทียนขอพร! 🎂✨</a>
+     </div>
+
+
+    <!-- รูปภาพเลื่อน -->
+    <div class="image-scroll-container">
+      <img src="images/S__148258820.jpg" alt="รูปที่ 1" />
+      <img src="images/S__148258818.jpg" alt="รูปที่ 2" />
+      <img src="images/S__148258821.jpg" alt="รูปที่ 3" />
+      <img src="images/S__148258822.jpg" alt="รูปที่ 4" />
+      <img src="images/S__148258823.jpg" alt="รูปที่ 5" />
+      <img src="images/S__148258824.jpg" alt="รูปที่ 6" />
+    </div>
+  </div>
+
+
+  <!-- วิดีโอ -->
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/LA0sQVSziyA?autoplay=1&mute=1" frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+      width="0%" height="0">
+    </iframe>
+  </div>
+
+  <script>
+    // แสดงข้อความเป่าเทียนหลังจากที่โหลดเนื้อหาทั้งหมดแล้ว
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById("blowMessage").style.display = "block"; // แสดงข้อความ
+      }, 5000); // แสดงหลังจาก 5 วินาที
+    };
+  </script>
+
+</body>
+</html>
